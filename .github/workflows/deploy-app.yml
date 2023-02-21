@@ -1,0 +1,59 @@
+name: Build & Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+
+    name: "Deploy UI"
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/staging.key
+          chmod 600 ~/.ssh/staging.key
+          cat >>~/.ssh/config <<END
+          Host staging
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/staging.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.SSH_USERNAME }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+
+      - name: Checkout
+        run: |
+          ssh staging "
+          mkdir -p workspace
+          cd workspace
+          git clone git@github.com:appsttron/rentals-offers.git
+          "
+      - name: Docker Deploy
+        run: |
+          ssh staging "
+          echo $NODE_AUTH_TOKEN
+          cd workspace/rentals-offers
+          docker build . -t appsttron/renatls-offers:prod --build-arg NODE_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          docker images
+          docker kill renatls-offers
+          docker rm renatls-offers
+          docker run --name renatls-offers -p 94:3000 -d -t appsttron/renatls-offers:prod
+          "
+
+      - name: Clean up
+        if: always()
+        run: |
+          ssh staging "
+          ls
+          rm -r workspace/renatls-offers
+          "
