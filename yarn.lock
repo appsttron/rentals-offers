@@ -10,11 +10,6 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@appsttron/rex-commons@^0.1.13":
-  version "0.1.13"
-  resolved "https://npm.pkg.github.com/download/@appsttron/rex-commons/0.1.13/0ef33b60b3e3c612908508240aa716a6e116f9e4#0ef33b60b3e3c612908508240aa716a6e116f9e4"
-  integrity sha512-XTTidER1w3C0/RP0On9G/QbFe4CReoEd7XjuTDiq3zZJCyX5tc94DVAekDcrfHFm5AiMV9z52mjfDzXXGoZbUg==
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.18.6":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.18.6.tgz#3b25d38c89600baa2dcc219edfa88a74eb2c427a"
