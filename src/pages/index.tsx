@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import {width} from "@mui/system";
 import {Divider} from "@mui/material";
 
 export default function Home() {
