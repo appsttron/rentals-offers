@@ -55,5 +55,5 @@ jobs:
         run: |
           ssh staging "
           ls
-          rm -r workspace/renatls-offers
+          rm -r workspace/rentals-offers
           "
