@@ -43,7 +43,7 @@ jobs:
           ssh staging "
           echo $NODE_AUTH_TOKEN
           cd workspace/rentals-offers
-          docker build . -t appsttron/renatls-offers:prod --build-arg NODE_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} --build-arg NEXT_PUBLIC_API_URL=http://206.189.197.77:9070 --build-arg NEXT_PUBLIC_API_KEY=${{NEXT_PUBLIC_API_KEY}}
+          docker build . -t appsttron/renatls-offers:prod --build-arg NODE_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} --build-arg NEXT_PUBLIC_API_URL=http://206.189.197.77:9070 --build-arg NEXT_PUBLIC_API_KEY=${{secrets.NEXT_PUBLIC_API_KEY}}
           docker images
           docker kill renatls-offers
           docker rm renatls-offers
