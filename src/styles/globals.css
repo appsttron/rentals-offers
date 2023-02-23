@@ -1,1 +1,31 @@
+@font-face {
+    font-family: 'percu_bold_italic_pro';
+    src: url('font/apercu_bold_italic_pro.otf') format('otf'),
+    url('font/apercu_bold_italic_pro.otf') format('otf');
+    font-weight: bold;
+    font-style: italic;
+}
 
+@font-face {
+    font-family: 'apercu_bold_pro';
+    src: url('font/apercu_bold_pro.otf') format('otf'),
+    url('font/apercu_bold_pro.otf') format('otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'apercu_regular_italic_pro';
+    src: url('font/apercu_regular_italic_pro.otf') format('otf'),
+    url('font/apercu_regular_italic_pro.otf') format('otf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+        font-family: 'apercu_regular_pro';
+    src: url('font/apercu_regular_pro.otf') format('otf'),
+    url('font/apercu_regular_pro.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
